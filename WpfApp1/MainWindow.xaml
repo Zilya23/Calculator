@@ -46,6 +46,7 @@
         <Button x:Name="btn_um" Content="*" Grid.Column="4" Grid.Row="5" Click="btn_um_Click"/>
         <Button x:Name="btn_del" Content="/" Grid.Column="4" Grid.Row="6" Click="btn_del_Click"/>
         <Button x:Name="btn_ravno" Content="=" Grid.Column="3" Grid.Row="6" Click="btn_ravno_Click"/>
+        <Button x:Name="btn_c" Content="del" Grid.Column="1" Grid.Row="6" Click="btn_c_Click"/>
 
         <TextBlock x:Name="tb_ekran1" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4"/>
         <TextBlock x:Name="tb_ekran2" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="4"/>

@@ -20,8 +20,8 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-        public int first_number;
-        public int second_number;
+        public double first_number;
+        public double second_number;
         public MainWindow()
         {
             InitializeComponent();
@@ -79,7 +79,7 @@ namespace WpfApp1
 
         private void btn_plus_Click(object sender, RoutedEventArgs e)
         {
-            first_number = Convert.ToInt32(tb_ekran2.Text);
+            first_number = Convert.ToDouble(tb_ekran2.Text);
             tb_ekran2.Text += "+";
             tb_ekran1.Text = tb_ekran2.Text;
             tb_ekran2.Text = "";
@@ -87,7 +87,7 @@ namespace WpfApp1
 
         private void btn_minus_Click(object sender, RoutedEventArgs e)
         {
-            first_number = Convert.ToInt32(tb_ekran2.Text);
+            first_number = Convert.ToDouble(tb_ekran2.Text);
             tb_ekran2.Text += "-";
             tb_ekran1.Text = tb_ekran2.Text;
             tb_ekran2.Text = "";
@@ -95,7 +95,7 @@ namespace WpfApp1
 
         private void btn_um_Click(object sender, RoutedEventArgs e)
         {
-            first_number = Convert.ToInt32(tb_ekran2.Text);
+            first_number = Convert.ToDouble(tb_ekran2.Text);
             tb_ekran2.Text += "*";
             tb_ekran1.Text = tb_ekran2.Text;
             tb_ekran2.Text = "";
@@ -103,7 +103,7 @@ namespace WpfApp1
 
         private void btn_del_Click(object sender, RoutedEventArgs e)
         {
-            first_number = Convert.ToInt32(tb_ekran2.Text);
+            first_number = Convert.ToDouble(tb_ekran2.Text);
             tb_ekran2.Text += "/";
             tb_ekran1.Text = tb_ekran2.Text;
             tb_ekran2.Text = "";
@@ -111,7 +111,7 @@ namespace WpfApp1
 
         private void btn_ravno_Click(object sender, RoutedEventArgs e)
         {
-            second_number = Convert.ToInt32(tb_ekran2.Text);
+            second_number = Convert.ToDouble(tb_ekran2.Text);
             if(tb_ekran1.Text.Last() == '+')
             {
                 tb_ekran1.Text = "";
@@ -132,10 +132,24 @@ namespace WpfApp1
             }
             else if (tb_ekran1.Text.Last() == '/')
             {
-                tb_ekran1.Text = "";
-                tb_ekran2.Text = "";
-                tb_ekran2.Text = Convert.ToString(first_number / second_number);
+                try
+                {
+                    tb_ekran1.Text = "";
+                    tb_ekran2.Text = "";
+                    tb_ekran2.Text = Convert.ToString(first_number / second_number);
+                }
+                catch
+                {
+                    tb_ekran1.Text = "";
+                    tb_ekran2.Text = "Ошибка";
+                }
             }
+        }
+
+        private void btn_c_Click(object sender, RoutedEventArgs e)
+        {
+            tb_ekran1.Text = "";
+            tb_ekran2.Text = "";
         }
     }
 }
