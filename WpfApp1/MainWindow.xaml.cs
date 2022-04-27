@@ -79,7 +79,7 @@ namespace WpfApp1
 
         private void btn_plus_Click(object sender, RoutedEventArgs e)
         {
-            if(tb_ekran2.Text.First() == '∞')
+            if (tb_ekran2.Text.First() == '∞')
             {
                 MessageBox.Show("Очистите запись");
                 tb_ekran2.Text = "";
@@ -150,46 +150,73 @@ namespace WpfApp1
                 {
                     tb_ekran1.Text = "";
                     tb_ekran2.Text = "";
-                    tb_ekran2.Text = Convert.ToString(first_number + second_number);
+                    tb_ekran2.Text = Plus(first_number, second_number);
                 }
                 else if (tb_ekran1.Text.Last() == '-')
                 {
                     tb_ekran1.Text = "";
                     tb_ekran2.Text = "";
-                    tb_ekran2.Text = Convert.ToString(first_number - second_number);
+                    tb_ekran2.Text = Minus(first_number, second_number);
                 }
                 else if (tb_ekran1.Text.Last() == '*')
                 {
                     tb_ekran1.Text = "";
                     tb_ekran2.Text = "";
-                    tb_ekran2.Text = Convert.ToString(first_number * second_number);
+                    tb_ekran2.Text = Umnoj(first_number, second_number);
                 }
                 else if (tb_ekran1.Text.Last() == '/')
                 {
-                    try
-                    {
-                        tb_ekran1.Text = "";
-                        tb_ekran2.Text = "";
-                        tb_ekran2.Text = Convert.ToString(first_number / second_number);
-                    }
-                    catch
-                    {
-                        tb_ekran1.Text = "";
-                        tb_ekran2.Text = "Ошибка";
-                    }
+                    tb_ekran1.Text = "";
+                    tb_ekran2.Text = "";
+                    tb_ekran2.Text = Delit(first_number, second_number);
                 }
             }
             catch
             {
 
-            }
-            
+            }    
         }
 
         private void btn_c_Click(object sender, RoutedEventArgs e)
         {
             tb_ekran1.Text = "";
             tb_ekran2.Text = "";
+        }
+
+        public string Plus(double first, double second)
+        {
+            tb_ekran1.Text = "";
+            tb_ekran2.Text = "";
+            return Convert.ToString(first + second);
+        }
+
+        public string Minus(double first, double second)
+        {
+            tb_ekran1.Text = "";
+            tb_ekran2.Text = "";
+            return Convert.ToString(first - second);
+        }
+
+        public string Umnoj(double first, double second)
+        {
+            tb_ekran1.Text = "";
+            tb_ekran2.Text = "";
+            return Convert.ToString(first * second);
+        }
+
+        public string Delit(double first, double second)
+        {
+            try
+            {
+                tb_ekran1.Text = "";
+                tb_ekran2.Text = "";
+                return Convert.ToString(first / second);
+            }
+            catch
+            {
+                tb_ekran1.Text = "";
+                return "Ошибка";
+            }
         }
     }
 }
